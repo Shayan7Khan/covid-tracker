@@ -1,3 +1,4 @@
+import 'package:covid_tracker/Widgets/reusable_row.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -33,6 +34,56 @@ class _DetailScreenState extends State<DetailScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Padding(
+                padding: EdgeInsetsGeometry.only(top: MediaQuery.of(context).size.height * .067),
+                child: Card(
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQuery.of(context).size.height * .06 ,),
+                      ReusableRow(
+                        title: 'Cases',
+                        value: widget.totalCases.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Deaths',
+                        value: widget.totalDeaths.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Recovered',
+                        value: widget.totalRecovered.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Active',
+                        value: widget.active.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Critical',
+                        value: widget.critical.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Recovered Today',
+                        value: widget.todayRecovered.toString(),
+                      ),
+                      ReusableRow(
+                        title: 'Tests',
+                        value: widget.test.toString(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(widget.image),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
