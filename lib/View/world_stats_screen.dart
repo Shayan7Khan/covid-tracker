@@ -29,6 +29,8 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
     _controller.dispose();
   }
 
+  //now we are about to implement the following functionalities
+
   final colorList = <Color>[
     Color(0xff4285F4),
     Color(0xff1aa260),
@@ -66,7 +68,7 @@ class _WorldStatsScreenState extends State<WorldStatsScreen>
                   } else {
                     return Column(
                       children: [
-                        //
+                        
                         _pieChart(snapshot.data!),
                         SizedBox(height: _deviceHeight * 0.01),
                         _totalDataInTableForm(snapshot.data!),
